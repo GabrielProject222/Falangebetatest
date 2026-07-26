@@ -2,7 +2,7 @@
   "name": "Falange",
   "short_name": "Falange",
   "description": "Sistema para localização de paletes em corredores.",
-  "start_url": "./index.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
