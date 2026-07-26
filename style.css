@@ -323,4 +323,6 @@ header h1 {
     .botoes-corredor {
         grid-template-columns: repeat(4, 1fr);
     }
+}.btn-move {
+    background: #dbeafe;
 }
