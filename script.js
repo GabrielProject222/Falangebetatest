@@ -138,6 +138,18 @@ function renderLista() {
 
     let html = '';
     lista.forEach(function(item) {
+        html += '<div class="item-card"><div class="info"><div class="nome">' + item.nome + '</div><div class="qtd">' + item.quantidade + ' palete' + (item.quantidade > 1 ? 's' : '') + '</div></div><div class="item-actions"><button class="btn-edit" onclick="editarItem(\'' + item.id + '\')">✍🏻</button><button class="btn-move" onclick="moverItem(\'' + item.id + '\')">🔄</button><button class="btn-delete" onclick="removerItem(\'' + item.id + '\')">🗑️</button></div></div>';
+    });
+
+    container.innerHTML = html;
+}
+        return;
+    }
+
+    msgVazio.classList.add('hidden');
+
+    let html = '';
+    lista.forEach(function(item) {
         html += '<div class="item-card"><div class="info"><div class="nome">' + item.nome + '</div><div class="qtd">' + item.quantidade + ' palete' + (item.quantidade > 1 ? 's' : '') + '</div></div><div class="item-actions"><button class="btn-edit" onclick="editarItem(\'' + item.id + '\')">✍🏻</button><button class="btn-delete" onclick="removerItem(\'' + item.id + '\')">🗑️</button></div></div>';
     });
 
