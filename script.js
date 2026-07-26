@@ -248,3 +248,42 @@ if ("serviceWorker" in navigator) {
       .catch(err => console.log("Erro:", err));
   });
 }
+function moverItem(id) {
+    const novoCorredor = prompt('Para qual corredor deseja mover esta mercadoria? (1 a 60)');
+    
+    if (!novoCorredor) return; // Cancelou
+
+    const destino = parseInt(novoCorredor, 10);
+
+    if (isNaN(destino) || destino < 1 || destino > 60) {
+        alert('Número de corredor inválido. Digite um número de 1 a 60.');
+        return;
+    }
+
+    if (destino == corredorAtual) {
+        alert('A mercadoria já está neste corredor.');
+        return;
+    }
+
+    const dados = getDados();
+    const lista = dados[corredorAtual] || [];
+    const item = lista.find(function(i) { return i.id === id; });
+
+    if (!item) return;
+
+    // Remove do corredor atual
+    dados[corredorAtual] = lista.filter(function(i) { return i.id !== id; });
+    if (dados[corredorAtual].length === 0) {
+        delete dados[corredorAtual];
+    }
+
+    // Adiciona no corredor de destino
+    if (!dados[destino]) {
+        dados[destino] = [];
+    }
+    dados[destino].push(item);
+
+    salvarDados(dados);
+    renderLista();
+    alert('Mercadoria movida para o Corredor ' + destino + ' com sucesso!');
+}
